@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block title %}Register Page{% endblock %}
+
+{% block content %}
+<style>
+    /* Registration Page Styling */
+    .register-container {
+        max-width: 500px;
+        margin: 50px auto;
+        padding: 30px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .register-heading {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 30px;
+    }
+
+    .register-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .register-form label {
+        font-size: 1.1rem;
+        color: #333;
+        font-weight: 600;
+    }
+
+    .register-form input {
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        width: 100%;
+    }
+
+    .register-form button {
+        padding: 12px 20px;
+        background-color: #007bff;
+        color: white;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .register-form button:hover {
+        background-color: #0056b3;
+    }
+
+    .register-link-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .register-link {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .register-link:hover {
+        text-decoration: underline;
+    }
+
+    /* Error Message Styling */
+    .error-message {
+        color: #dc3545;
+        font-size: 1rem;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+</style>
+
+<div class="register-container">
+    <h2 class="register-heading">Register</h2>
+
+    {% if error_message %}
+    <div class="error-message">{{ error_message }}</div> <!-- Display error message if it exists -->
+    {% endif %}
+
+    <form class="register-form" method="POST" action="/register">
+        <label for="username">Username:</label>
+        <input type="text" name="username" required>
+        
+        <label for="password">Password:</label>
+        <input type="password" name="password" required>
+        
+        <button type="submit">Register</button>
+    </form>
+
+    <div class="register-link-container">
+        <a class="register-link" href="{{ url_for('login') }}">Already have an account? Login here</a>
+    </div>
+</div>
+
+{% endblock %}

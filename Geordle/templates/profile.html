@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<style>
+    /* Profile Page Styling */
+    .profile-container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 30px;
+        background-color: #f4f4f9;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-heading {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .profile-info {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .points {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #007bff;
+    }
+
+    .leaderboard-link-container {
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    .leaderboard-link {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        font-weight: 600;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }
+
+    .leaderboard-link:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+<div class="profile-container">
+    <h2 class="profile-heading">Welcome, {{ logged_in_user }}!</h2>
+    <div class="profile-info">
+        <p>Your current points: <span class="points">{{ points }}</span></p>
+    </div>
+
+    <div class="leaderboard-link-container">
+        <a class="leaderboard-link" href="{{ url_for('leaderboard') }}">View full leaderboard</a>
+    </div>
+</div>
+
+{% endblock %}

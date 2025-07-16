@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}About Page{% endblock %}
+
+{% block content %}
+    <style>
+        /* General Container for the About Section */
+        .about-container {
+            max-width: 800px;
+            margin: 50px auto; /* Center the content and add margin on top */
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Title of the About Page */
+        .about-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Description Paragraph */
+        .about-description {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.6;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        /* Message Section */
+        .about-message {
+            font-size: 20px;
+            color: #4CAF50; /* Green color to add a fun vibe */
+            text-align: center;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-container {
+                padding: 15px;
+            }
+
+            .about-title {
+                font-size: 30px;
+            }
+
+            .about-description {
+                font-size: 16px;
+            }
+
+            .about-message {
+                font-size: 18px;
+            }
+        }
+    </style>
+
+    <div class="about-container">
+        <h2 class="about-title">About Geordle</h2>
+        <p class="about-description">Welcome to the Geordle game! Here you can guess words and try to beat your best score.</p>
+        <p class="about-message">Enjoy playing and have fun! </p>
+    </div>
+{% endblock %}

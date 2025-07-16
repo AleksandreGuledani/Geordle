@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}Leaderboard{% endblock %}
+
+{% block content %}
+<style>
+    /* Leaderboard Page Styling */
+    .leaderboard-container {
+        max-width: 900px;
+        margin: 50px auto;
+        padding: 30px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .leaderboard-heading {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 30px;
+    }
+
+    .leaderboard-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .leaderboard-list li {
+        display: flex;
+        justify-content: space-between;
+        padding: 15px;
+        border-bottom: 1px solid #ddd;
+        font-size: 1.1rem;
+    }
+
+    .leaderboard-list li:last-child {
+        border-bottom: none;
+    }
+
+    .leaderboard-rank {
+        font-weight: bold;
+        color: #007bff;
+    }
+
+    .leaderboard-name {
+        font-weight: 600;
+        color: #333;
+    }
+
+    .leaderboard-points {
+        font-weight: 600;
+        color: #28a745;
+    }
+
+
+</style>
+
+<div class="leaderboard-container">
+    <h2 class="leaderboard-heading">Leaderboard</h2>
+    <ul class="leaderboard-list">
+        {% for user in users %}
+            <li>
+                <span class="leaderboard-rank">{{ loop.index }}.</span>
+                <span class="leaderboard-name">{{ user[0] }}</span>
+                <span class="leaderboard-points">{{ user[1] }} points</span>
+            </li>
+        {% endfor %}
+    </ul>
+
+</div>
+
+
+
+{% endblock %}
